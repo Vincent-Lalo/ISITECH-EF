@@ -16,4 +16,13 @@ public class Northwind : DbContext
 
         optionsBuilder.UseSqlite(connection);
     }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        //Avec Fluent API on peut définir des règles de validation
+        /*modelBuilder.Entity<Category>()
+            .Property(c => c.CategoryName)
+            .IsRequired()
+            .HasMaxLength(15);*/
+    }
 }
