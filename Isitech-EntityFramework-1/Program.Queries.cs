@@ -2,18 +2,18 @@ using Microsoft.EntityFrameworkCore;
 
 using EFCore.Shared;
 
-partial class Program_Queries
+partial class ProgramQueries
 {
      public static void GetCategories()
     {
         using (Northwind db = new())
         {
-            Program_Help.SectionTitle("Liste des catégories");
+            ProgramHelp.SectionTitle("Liste des catégories");
             IQueryable<Category> categories = db.Categories?.Include(c => c.Products);
             
             if((categories is null) || (categories.Count() == 0))
             {
-                Program_Help.Fail("Aucune catégorie trouvée");
+                ProgramHelp.Fail("Aucune catégorie trouvée");
                 return;
             }
             
@@ -27,4 +27,27 @@ partial class Program_Queries
             }
         }
     }
+
+     //récupérer la liste des produits dont le prix est supérieur à un montant passé en paramètre
+     public static void GetProductsByPriceSuperior(decimal priceEntered)
+     {
+         using (Northwind db = new())
+         {
+             List<Product> products = db.Products
+                 .Where(product => product.UnitPrice > priceEntered)
+                 .ToList();
+
+             if (products.Count == 0)
+             {
+                 ProgramHelp.Fail("Aucun produit trouvé");
+                 return;
+             }
+
+             foreach (Product product in products)
+             {
+                 db.Entry(product).Reference(p => p.Category).Load();
+                 Console.WriteLine(product.ProductName + ". Prix: " + product.UnitPrice + "$. Stock: " + product.UnitsInStock);
+             }
+         }
+     }
 }

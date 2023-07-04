@@ -7,4 +7,9 @@ Console.WriteLine("Hello, World!");
 Northwind db = new();
 Console.WriteLine($"Nom du provider: {db.Database.ProviderName}");
 
-Program_Queries.GetCategories();
+//Program_Queries.GetCategories();
+
+Console.WriteLine("Entrez un prix :");
+String price = Console.ReadLine();
+
+ProgramQueries.GetProductsByPriceSuperior(decimal.Parse(price));

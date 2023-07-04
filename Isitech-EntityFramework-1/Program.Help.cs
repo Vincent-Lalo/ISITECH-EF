@@ -1,6 +1,6 @@
 namespace EFCore.Shared;
 
-public class Program_Help
+public class ProgramHelp
 {
     public static void SectionTitle(string title)
     {
