@@ -8,7 +8,6 @@ public class Northwind : DbContext
     {
         String path = Path.Combine(Environment.CurrentDirectory, "Northwind.db");
         
-        Console.WriteLine(path);
         String connection = $"Filename={path}";
         
         ConsoleColor color = Console.ForegroundColor;
