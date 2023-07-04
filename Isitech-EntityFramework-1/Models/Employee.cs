@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace EFCore.Shared;
 
-public class Employees
+public class Employee
 {
+    [Key]
     public int EmployeeId { get; set; }
     public string LastName { get; set; } = null!;
     public string FirstName { get; set; } = null!;

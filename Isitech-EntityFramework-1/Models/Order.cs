@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace EFCore.Shared;
 
-public class Orders
+public class Order
 {
+    [Key]
     public int OrderId { get; set; }
     public string? CustomerId { get; set; }
     public int? EmployeeId { get; set; }
@@ -16,7 +19,7 @@ public class Orders
     public string? ShipRegion { get; set; }
     public string? ShipPostalCode { get; set; }
     public string? ShipCountry { get; set; }
-    public Customers? Customer { get; set; }
-    public Employees? Employee { get; set; }
-    public Shippers? Shipper { get; set; }
+    public Customer? Customer { get; set; }
+    public Employee? Employee { get; set; }
+    public Shipper? Shipper { get; set; }
 }

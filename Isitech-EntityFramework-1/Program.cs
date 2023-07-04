@@ -6,3 +6,5 @@ Console.WriteLine("Hello, World!");
 
 Northwind db = new();
 Console.WriteLine($"Nom du provider: {db.Database.ProviderName}");
+
+Program_Queries.GetCategories();

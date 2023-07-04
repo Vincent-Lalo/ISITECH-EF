@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace EFCore.Shared;
 
-public class Suppliers
+public class Supplier
 {
+    [Key]
     public int SupplierId { get; set; }
     public string CompanyName { get; set; } = null!;
     public string? ContactName { get; set; }

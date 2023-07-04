@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace EFCore.Shared;
 
-public class Customers
+public class Customer
 {
+    [Key]
     public string CustomerId { get; set; } = null!;
     public string CompanyName { get; set; } = null!;
     public string? ContactName { get; set; }
