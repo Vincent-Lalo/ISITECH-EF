@@ -25,8 +25,6 @@ public partial class Product
 
   [Column(TypeName = "numeric(18, 0)")]
   public decimal? UnitPrice { get; set; }
-  
-  public string? WareHouseName { get; set; }
 
   [NotMapped]
   [ForeignKey("CategoryId")]
