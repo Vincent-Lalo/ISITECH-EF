@@ -15,7 +15,7 @@ public partial class NorthwindContext : DbContext
   {
     String path = Path.Combine(Environment.CurrentDirectory, "Northwind.db");
         
-    String connection = $"Filename={path}";
+    String connection = $"Filename={path}; Initial Catalog=Northwind_Migration; Integrated Security=True; TrustServerCertificate=True";
 
     optionsBuilder.UseSqlite(connection);
   }
